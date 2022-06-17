@@ -1,0 +1,116 @@
+/* 基礎設定 */
+/* * {
+    border: 1px solid #000;
+} */
+/* 置中 */
+.h-cetner {
+    margin: 0 auto;
+}
+
+.h-10 {
+    height: 10%;
+}
+
+.v-center {
+    margin: auto 0;
+}
+
+/* 背景 */
+body {
+    /* 圖片 */
+    background-image: url(./bg-tech.png);
+    /* 背景延展 */
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* 固定背景 */
+    background-attachment: fixed;
+}
+
+.second-color {
+    background-color: rgb(219, 212, 212);
+}
+
+.base-color {
+    background-color: black;
+    color: whitesmoke;
+}
+
+.nav-space {
+    height: 28vh;
+}
+
+/* TODO: 遊戲 */
+
+.game-btn {
+    background-color: rgb(96, 187, 167);
+    border: unset;
+}
+
+.guess-field {
+    border: unset;
+    user-select: unset;
+}
+
+.pass-color {
+    color: green;
+}
+
+.fail-color {
+    color: red;
+}
+
+.again-color {
+    color: rgb(69, 37, 199);
+}
+
+/* 手機 */
+/* 平板 */
+/* 電腦 */
+/* 大螢幕 */
+@media screen and (max-width: 767px) {
+    .nav-space {
+        height: 30vh;
+    }
+
+    .rule h1 {
+        font-size: 24px;
+    }
+
+    .rule p {
+        font-size: 8px;
+    }
+
+    .submit {
+        margin-left: 1rem;
+    }
+
+}
+
+@media screen and (min-width: 767px) and (max-width: 991px) {
+    .nav-space {
+        height: 27vh;
+    }
+
+    .rule h1 {
+        font-size: 24px;
+    }
+
+    .rule p {
+        font-size: 14px;
+    }
+
+    .rule p,
+    h1,
+    input {
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+    label {
+        margin-top: 1.6rem;
+    }
+}
+
+@media screen and (min-width: 991px) and (max-width: 1199px) {}
+
+@media screen and (min-width: 1200px) {}

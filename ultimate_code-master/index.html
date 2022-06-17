@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>選數字遊戲</title>
+    <!-- bootstrap4 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- css -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+
+<body>
+    <div class="container" id="vue">
+        <!-- 標題 -->
+        <div class="fixed-top d-flex justify-content-center base-color">
+            <h4 class="m-3">選數字遊戲</h4>
+        </div>
+        <div class="nav-space"></div>
+        <!-- 遊戲 -->
+        <div class="second-color d-flex rounded-lg shadow">
+            <!-- 規則 -->
+            <div class="col-6 p-3 rule">
+                <h1 class="display-5 ml-3">遊戲說明:</h1>
+                <p class="ml-3">我們已經從1–100 中選出一個號碼<br>你的任務是在5 次內猜中這個數字</p>
+                <!-- 輸入框 -->
+                <label class="pr-3 ml-3">猜數字 ：
+                    <input v-model.number="guess" @keyup.enter="guessSubmit" oninput="" class="guess-field rounded-lg"
+                        min="1" max="100">
+                </label>
+                <!-- 按鈕 -->
+                <button v-if="submitHide" @click="guessSubmit" class="submit game-btn rounded-lg">送出</button>
+                <button v-if="againShow" @click="newGame" class="game-btn startNewGame rounded-lg">再一局</button>
+            </div>
+            <!-- 狀態欄 -->
+            <div class="col-6 p-3 status">
+                <p class="w-75 mx-auto">提示 ： <span> {{ hint }}</span></p>
+                <p class="w-75 mx-auto">猜測 ： <span> {{ history.join(", ") }}</span></p>
+                <p class="w-75 mx-auto">結果 ： <span
+                        :class="{'fail-color': result=='答錯','pass-color': result=='答對','again-color': result==`再接再厲，答案是${answer}`}">
+                        {{ result }}</span></p>
+                <p class="w-75 mx-auto">剩餘回合 ： <span :class="{'fail-color': 2 > turn}"> {{ turn }}</span></p>
+            </div>
+            <!-- 計分方式 -->
+            <footer class="fixed-bottom d-flex base-color h-10">
+                <div class="col-6 v-center">
+                    <p class="text-center v-center">得分 ： <span> {{ score }}</span></p>
+                </div>
+                <div class="col-6 v-center">
+                    <p class="text-center v-center">2022 呂學奇 / Bob, Lu</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+<!-- vue.js -->
+<script src="https://unpkg.com/vue@next"></script>
+<script src="./vue.js"></script>
+
+</html>
+
+<!-- <div :class="{'className': 條件}"></div> -->
